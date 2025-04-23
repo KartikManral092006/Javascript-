@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href=""
+      rel="stylesheet"
+    />
+    <title>Demonstration of Api fetch using XML </title>
+  </head>
+  <body>
+    <h1>API Fetching using the XML</h1>
+  </body>
+  <script>
+    const requestUrl = 'https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@2024-03-06/v1/currencies/usd.json'
+     const xhr = new XMLHttpRequest()
+     xhr.open('GET',requestUrl)
+    xhr.onreadystatechange =function (){
+        console.log(xhr.readyState);
+        if(xhr.readyState === 4){
+            const data = JSON.parse(this.responseText)
+            console.log(data.usd.inr);
+        }
+    }
+   xhr.send();
+  </script>
+</html>
